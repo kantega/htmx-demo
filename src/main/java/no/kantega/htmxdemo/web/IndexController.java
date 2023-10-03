@@ -1,4 +1,4 @@
-package no.kantega.htmxdemo;
+package no.kantega.htmxdemo.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
