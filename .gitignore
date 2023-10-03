@@ -1,0 +1,14 @@
+c:
+.fleet
+.idea
+*.iml
+
+~*.do[ct]x
+~*.doc
+~*.ppt*
+.settings
+.classpath
+.project
+
+target
+tmp
