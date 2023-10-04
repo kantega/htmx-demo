@@ -35,7 +35,12 @@ public class ProductController {
     }
 
     @PostMapping("{id}/add-price")
-    public ModelAndView postAddPrice(@PathVariable int id, @ModelAttribute @Valid AddPriceCommand command, BindingResult bindingResult, HttpServletResponse response) {
+    public ModelAndView postAddPrice(
+            @PathVariable int id,
+            @ModelAttribute @Valid AddPriceCommand command,
+            BindingResult bindingResult,
+            HttpServletResponse response
+    ) {
         if (bindingResult.hasErrors()) {
             return new ModelAndView("/products/add-price")
                     .addObject("command", command);
