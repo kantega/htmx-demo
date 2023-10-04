@@ -8,6 +8,8 @@ public class Price {
     private LocalDate validFrom;
     private BigDecimal amount;
 
+    private int id;
+
     public Price(LocalDate validFrom, BigDecimal amount) {
         this.validFrom = validFrom;
         this.amount = amount;
@@ -27,5 +29,13 @@ public class Price {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

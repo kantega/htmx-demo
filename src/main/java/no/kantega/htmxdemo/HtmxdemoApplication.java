@@ -12,7 +12,6 @@ import java.util.Locale;
 public class HtmxdemoApplication {
 	public static void main(String[] args) {
 		Locale.setDefault(new Locale("no", "no"));
-		System.out.println(Currency.getInstance(Locale.getDefault()).getSymbol());
 		SpringApplication.run(HtmxdemoApplication.class, args);
 	}
 }

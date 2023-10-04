@@ -52,7 +52,15 @@ public class Product {
     }
 
     public void addPrice(Price p) {
+        p.setId(prices.size());
         prices.add(p);
+    }
+
+    public void deletePrice(int id) {
+        prices.stream()
+                .filter(p -> p.getId() == id)
+                .findFirst()
+                .ifPresent(price -> prices.remove(price));
     }
 
     public List<Price> getPrices() {
