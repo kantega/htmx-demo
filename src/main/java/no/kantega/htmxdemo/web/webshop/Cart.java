@@ -21,7 +21,7 @@ public class Cart {
                 return item;
             }
         }
-        CartItem item = new CartItem(product, 1);
+        CartItem item = new CartItem(product, 0);
         items.add(item);
         return item;
     }
