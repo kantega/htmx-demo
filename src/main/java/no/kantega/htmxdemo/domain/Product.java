@@ -1,24 +1,27 @@
 package no.kantega.htmxdemo.domain;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Product {
     private int id;
     // Attributes
     private String name;
     private String description;
-    private double price;
+    private BigDecimal price;
     private int stockQuantity;
 
     private List<Price> prices = new ArrayList<>();
 
     // Constructor
-    public Product(int id, String name, String description, double price, int stockQuantity) {
+    public Product(int id, String name, String description, String price, int stockQuantity) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.price = price;
+        this.price = new BigDecimal(price);
         this.stockQuantity = stockQuantity;
     }
 
@@ -43,8 +46,9 @@ public class Product {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public BigDecimal getPrice() {
+        List<Price> prices = getPrices();
+        return prices.isEmpty() ? BigDecimal.ZERO : prices.get(0).getAmount();
     }
 
     public void addPrice(Price p) {
@@ -52,7 +56,9 @@ public class Product {
     }
 
     public List<Price> getPrices() {
-        return prices;
+        return prices.stream()
+                .sorted(Comparator.comparing(Price::getValidFrom).reversed())
+                .collect(Collectors.toList());
     }
 
     public int getStockQuantity() {

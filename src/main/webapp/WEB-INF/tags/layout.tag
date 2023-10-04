@@ -3,7 +3,8 @@
 <head>
     <title>HTMX Demo</title>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.2/css/bootstrap.css"/>
-    <script src="${pageContext.request.contextPath}/webjars/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/bootstrap/5.3.2/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/htmx.org/1.9.6/dist/htmx.js"></script>
 </head>
 <body>
 

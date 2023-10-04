@@ -1,13 +1,14 @@
 package no.kantega.htmxdemo.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Price {
 
     private LocalDate validFrom;
-    private double amount;
+    private BigDecimal amount;
 
-    public Price(LocalDate validFrom, double amount) {
+    public Price(LocalDate validFrom, BigDecimal amount) {
         this.validFrom = validFrom;
         this.amount = amount;
     }
@@ -20,11 +21,11 @@ public class Price {
         this.validFrom = validFrom;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }

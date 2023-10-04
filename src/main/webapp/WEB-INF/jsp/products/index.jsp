@@ -19,6 +19,14 @@
                 </table>
             </div>
             <div class="card-body">
+                <button
+                        class="btn btn-outline-primary"
+                        hx-get="/products/${product.id}/add-price"
+                        hx-target="next tbody"
+                        hx-swap="afterbegin"
+                >
+                    Add price
+                </button>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -27,7 +35,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="price" items="${product.prices}" >
+                    <c:forEach var="price" items="${product.prices}">
                         <tr>
                             <td><fmt:formatNumber value="${price.amount}" type="currency" currencyCode="NOK"/></td>
                             <td>${price.validFrom}</td>
