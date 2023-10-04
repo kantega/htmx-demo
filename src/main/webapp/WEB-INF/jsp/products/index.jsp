@@ -1,13 +1,13 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<style>
-    tr.htmx-swapping td {
-        opacity: 0;
-        transition: opacity 1s ease-out;
-    }
-</style>
 <t:layout>
+    <style>
+        tr.htmx-swapping td {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+    </style>
     <c:forEach var="product" items="${products}">
         <div class="card mb-3">
             <div hx-get="/products/${product.id}/description" hx-trigger="newPrice-${product.id} from:body">
