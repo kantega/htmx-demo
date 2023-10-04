@@ -10,20 +10,10 @@
 <t:layout>
     <c:forEach var="product" items="${products}">
         <div class="card mb-3">
-            <div class="card-header">
-                <h2>${product.name}</h2>
-                <p>${product.description}</p>
-                <table>
-                    <tr>
-                        <th>Current stock:</th>
-                        <td>${product.stockQuantity}</td>
-                    </tr>
-                    <tr>
-                        <th>Current price:</th>
-                        <td><fmt:formatNumber value="${product.price}" type="currency" /></td>
-                    </tr>
-                </table>
+            <div hx-get="/products/${product.id}/description" hx-trigger="newPrice-${product.id} from:body">
+                <%@ include file="description.jsp" %>
             </div>
+
             <div class="card-body">
                 <button
                         class="btn btn-outline-primary"

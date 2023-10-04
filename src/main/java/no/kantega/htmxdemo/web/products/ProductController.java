@@ -1,5 +1,6 @@
 package no.kantega.htmxdemo.web.products;
 
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import no.kantega.htmxdemo.domain.Price;
 import no.kantega.htmxdemo.domain.Product;
@@ -34,7 +35,7 @@ public class ProductController {
     }
 
     @PostMapping("{id}/add-price")
-    public ModelAndView postAddPrice(@PathVariable int id, @ModelAttribute @Valid AddPriceCommand command, BindingResult bindingResult) {
+    public ModelAndView postAddPrice(@PathVariable int id, @ModelAttribute @Valid AddPriceCommand command, BindingResult bindingResult, HttpServletResponse response) {
         if (bindingResult.hasErrors()) {
             return new ModelAndView("/products/add-price")
                     .addObject("command", command);
@@ -43,9 +44,22 @@ public class ProductController {
         Product product = productRepository.findById(id);
         Price price = new Price(command.getValidFrom(), command.getPrice());
         product.addPrice(price);
+
+        response.addHeader("HX-Trigger", "newPrice-" + product.getId());
+
         return new ModelAndView("/products/price")
                 .addObject("price", price);
+
     }
+
+
+    @GetMapping("{id}/description")
+    public ModelAndView getProductDescription(@PathVariable int id) {
+        Product product = productRepository.findById(id);
+        return new ModelAndView("/products/description")
+                .addObject("product", product);
+    }
+
 
     @DeleteMapping("{productId}/prices/{priceId}")
     @ResponseStatus(HttpStatus.OK)
