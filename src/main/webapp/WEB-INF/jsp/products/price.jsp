@@ -1,7 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <tr>
-    <td><fmt:formatNumber value="${price.amount}" type="currency" currencyCode="NOK"/></td>
+    <td><fmt:formatNumber value="${price.amount}" type="currency" /></td>
     <td>${price.validFrom}</td>
     <td>
         <button class="btn btn-link text-danger"

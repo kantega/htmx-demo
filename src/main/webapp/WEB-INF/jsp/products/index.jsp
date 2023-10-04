@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                         <th>Current price:</th>
-                        <td><fmt:formatNumber value="${product.price}" type="currency" currencyCode="NOK"/></td>
+                        <td><fmt:formatNumber value="${product.price}" type="currency" /></td>
                     </tr>
                 </table>
             </div>

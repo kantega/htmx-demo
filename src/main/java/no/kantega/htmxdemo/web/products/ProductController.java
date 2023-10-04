@@ -1,4 +1,4 @@
-package no.kantega.htmxdemo.web;
+package no.kantega.htmxdemo.web.products;
 
 import jakarta.validation.Valid;
 import no.kantega.htmxdemo.domain.Price;
